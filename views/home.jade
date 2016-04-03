@@ -1,62 +1,31 @@
 extends layout
 
 block content
-  style.
-      body {
-      background: url(images/sciencebuilding_dark.png) no-repeat center center fixed;
-      background-size: cover;}
-      .navbar-default {
-      background-color: transparent;
-      border-color: transparent;}
-      .navbar-default .navbar-brand {
-      color: #ffffff; }
-      .navbar-default .navbar-nav > li > a {
-      color: #ffffff; }
-      footer p{
-      color: #ffffff;}
-      footer ul a{
-      color: #ffffff;}
-      .css-typing {
-      position: relative;
-      font: 300 80px/1.0 'Just Another Hand', Helvetica, sans-serif;
-      color: #969595;
-      text-shadow: 0px 3px 0px #5e5e5e, 0px 5px 0px #4d4d4d, 0px 7px 0px #3c3c3c, 0px 9px 0px #2b2b2b, 3px 8px 15px rgba(0, 0, 0, 0.1), 3px 8px 5px rgba(0, 0, 0, 0.3);
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      padding-bottom: 20px;
-      color: #ffffff;
-      width: 15em;
-      white-space: nowrap;
-      overflow: hidden;
-      -webkit-animation: type 5s steps(50, end);
-      animation: type 5s steps(50, end);}
-      @keyframes type {
-      from {
-          width: 0;}
-      }
-      @keyframes type2 {
-        0% {
-            width: 0;
-        }
-        50% {
-            width: 0;
-        }
-        100% {
-            width: 100;
-        }
-      }
-      @keyframes blink {
-        to {
-            opacity: .0;
-        }
-      }
-      ::selection {
-        background: black;
-      }
-  img.center-block(src='images/tbt3.png', alt='MTSU_IMG', style='width:350px;height:375px;margin-top:25px')
-  link(href='http://fonts.googleapis.com/css?family=Just+Another+Hand', rel='stylesheet', type='text/css')
-  p.css-typing
-      | A Middle Tennessee State University tutoring web application
-      span.blink
-          | 
+    style.
+        body {
+        background: url(images/sciencebuilding_dark.png) no-repeat center center fixed;background-size: cover;}
+        .navbar-default {background-color: transparent;border-color: transparent;}
+        .navbar-default .navbar-brand {color: #ffffff;}
+        .navbar-default .navbar-nav > li > a {color: #ffffff; }
+        footer p{color: #ffffff}
+        footer ul a{color: #ffffff;}
+        h2 {margin-left: 100px; color: #ffffff;}
+        button {margin-left: 220px;}
+        a.btn.btn {margin-left: 220px; background-color #ffffff;}
+        p {color: #ffffff;}
+        .css-typing {position: relative;font: 300 80px/1.0 'Just Another Hand', Helvetica, sans-serif;color: #969595;text-shadow: 0px 3px 0px #5e5e5e, 0px 5px 0px #4d4d4d, 0px 7px 0px #3c3c3c, 0px 9px 0px #2b2b2b, 3px 8px 15px rgba(0, 0, 0, 0.1), 3px 8px 5px rgba(0, 0, 0, 0.3);margin-left: auto;margin-right: auto;text-align: center;padding-bottom: 20px;color: #ffffff;
+    img.center-block(src='images/tbt3.png', alt='MTSU_IMG', style='width:350px;height:375px;margin-top:25px')
+    link(href='http://fonts.googleapis.com/css?family=Just+Another+Hand', rel='stylesheet', type='text/css')
+    p.css-typing
+        | A Middle Tennessee State University tutoring web application
+    .row
+      .col-sm-6
+        h2 Click here to ask a question
+        a.btn.btn-default(href='#', role='button')
+          i.fa.fa-user
+          | Ask a question
+      .col-sm-6
+        h2 Click here to chat with a tutor
+        a.btn.btn-default(href='/chat')
+          i.fa.fa-user
+          | Chat with a tutor

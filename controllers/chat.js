@@ -7,8 +7,3 @@ exports.getChat = function(req, res) {
     title: 'Chat'
   });
 };
-
-/**
- * POST /
- * Chat page/
-*/
