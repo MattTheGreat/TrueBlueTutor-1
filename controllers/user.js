@@ -169,7 +169,7 @@ exports.postUpdateProfile = function(req, res, next) {
  * Update current password.
  */
 exports.postUpdatePassword = function(req, res, next) {
-  req.assert('password', 'Password must be at least 4 characters long').len(4);
+  req.assert('password', 'Password must be at least 6 characters long').len(6);
   req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
 
   var errors = req.validationErrors();
@@ -210,28 +210,6 @@ exports.postDeleteAccount = function(req, res, next) {
 };
 
 /**
- * GET /account/unlink/:provider
- * Unlink OAuth provider.
- */
-exports.getOauthUnlink = function(req, res, next) {
-  var provider = req.params.provider;
-  User.findById(req.user.id, function(err, user) {
-    if (err) {
-      return next(err);
-    }
-    user[provider] = undefined;
-    user.tokens = _.reject(user.tokens, function(token) { return token.kind === provider; });
-    user.save(function(err) {
-      if (err) {
-        return next(err);
-      }
-      req.flash('info', { msg: provider + ' account has been unlinked.' });
-      res.redirect('/account');
-    });
-  });
-};
-
-/**
  * GET /reset/:token
  * Reset Password page.
  */
@@ -261,7 +239,7 @@ exports.getReset = function(req, res, next) {
  * Process the reset password request.
  */
 exports.postReset = function(req, res, next) {
-  req.assert('password', 'Password must be at least 4 characters long.').len(4);
+  req.assert('password', 'Password must be at least 6 characters long.').len(6);
   req.assert('confirm', 'Passwords must match.').equals(req.body.password);
 
   var errors = req.validationErrors();
@@ -307,8 +285,8 @@ exports.postReset = function(req, res, next) {
       });
       var mailOptions = {
         to: user.email,
-        from: 'hackathon@starter.com',
-        subject: 'Your Hackathon Starter password has been changed',
+        from: 'TutorTrueBlue@mtsu.edu',
+        subject: 'Your Tutor True BLue password has been changed',
         text: 'Hello,\n\n' +
           'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
       };
@@ -382,8 +360,8 @@ exports.postForgot = function(req, res, next) {
       });
       var mailOptions = {
         to: user.email,
-        from: 'hackathon@starter.com',
-        subject: 'Reset your password on Hackathon Starter',
+        from: 'TutorTrueBlue@mtsu.edu',
+        subject: 'Reset your password on Tutor True Blue',
         text: 'You are receiving this email because you (or someone else) have requested the reset of the password for your account.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
           'http://' + req.headers.host + '/reset/' + token + '\n\n' +

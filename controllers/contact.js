@@ -36,8 +36,8 @@ exports.postContact = function(req, res) {
   var from = req.body.email;
   var name = req.body.name;
   var body = req.body.message;
-  var to = 'your@email.com';
-  var subject = 'Contact Form | Hackathon Starter';
+  var to = 'kemotoe@gmail.com';
+  var subject = 'Contact Form | Tutor True Blue';
 
   var mailOptions = {
     to: to,
@@ -52,6 +52,6 @@ exports.postContact = function(req, res) {
       return res.redirect('/contact');
     }
     req.flash('success', { msg: 'Email has been sent successfully!' });
-    res.redirect('/contact');
+    res.redirect('/');
   });
 };
